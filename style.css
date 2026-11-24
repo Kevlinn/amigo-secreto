@@ -98,9 +98,9 @@ select:focus,input:focus,textarea:focus{border-color:var(--pine-2)}
 .save[disabled]{opacity:.6}
 
 /* Tabla */
-.table-wrap{background:#fff; border:2px solid var(--line); border-radius:var(--radius); overflow:hidden}
+.table-wrap{background:#fff; border:2px solid var(--line); border-radius:var(--radius); overflow:hidden; position:relative; z-index:0}
 table{width:100%; border-collapse:collapse; table-layout:fixed}
-thead th{background:var(--pine); color:#fff; text-align:left; padding:12px; font-weight:800; position:sticky; top:62px}
+thead th{background:var(--pine); color:#fff; text-align:left; padding:12px; font-weight:800}
 tbody td{vertical-align:top; padding:12px; border-top:1px solid var(--line); overflow-wrap:anywhere}
 tbody tr:nth-child(even){background:#fffaf4}
 th:nth-child(1){width:15%} th:nth-child(2){width:23%}
