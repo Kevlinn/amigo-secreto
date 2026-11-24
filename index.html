@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Amigo Secreto 🎁</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="snow" aria-hidden="true"></div>
+
+  <header class="hero">
+    <div class="ribbon" aria-hidden="true"></div>
+    <h1>Amigo Secreto 🎁</h1>
+    <p class="sub">Cuéntanos qué te gusta para que tu amigo secreto acierte con el regalo.</p>
+    <p class="progress" id="progress"></p>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" role="tab" id="tab-form" aria-selected="true" aria-controls="view-form">✏️ Mis regalos</button>
+    <button class="tab" role="tab" id="tab-list" aria-selected="false" aria-controls="view-list">🎄 Lista del grupo</button>
+  </nav>
+
+  <div class="banner" id="demoBanner" hidden>
+    Modo de prueba: los datos se guardan solo en este navegador. Configura <b>firebase-config.js</b> para compartirlos con el grupo.
+  </div>
+
+  <main>
+    <!-- PESTAÑA 1 -->
+    <section id="view-form" class="view" role="tabpanel">
+      <div class="card">
+        <label class="field-label" for="who">¿Quién eres?</label>
+        <div class="who-row">
+          <button type="button" class="avatar-btn" id="avatarBtn" aria-label="Elegir avatar" title="Elegir avatar">🎅</button>
+          <select id="who">
+            <option value="">Elige tu nombre…</option>
+          </select>
+        </div>
+        <div class="avatar-panel" id="avatarPanel" hidden>
+          <p class="hint">Elige tu avatar</p>
+          <div class="avatar-grid" id="avatarGrid"></div>
+        </div>
+      </div>
+
+      <div id="formBody" hidden>
+        <div class="card">
+          <h2>🍬 Regalitos de cada día</h2>
+          <label class="field-label" for="gustos">Tus gustos: dulces, snacks, frutas, bebidas…</label>
+          <textarea id="gustos" rows="4" maxlength="600" placeholder="Ej: chocolates con maní, papas lays, mandarinas, galletas de avena…"></textarea>
+        </div>
+
+        <div class="card">
+          <h2>🎁 Opciones para el regalo principal</h2>
+          <p class="hint">Propón hasta 3. Puedes poner el enlace de la tienda, una captura de pantalla o ambos.</p>
+          <div id="options"></div>
+        </div>
+
+        <button class="save" id="saveBtn" type="button">Guardar mis regalos</button>
+      </div>
+    </section>
+
+    <!-- PESTAÑA 2 -->
+    <section id="view-list" class="view" role="tabpanel" hidden>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Participante</th>
+              <th>Regalitos que me gustan</th>
+              <th>Opción 1</th>
+              <th>Opción 2</th>
+              <th>Opción 3</th>
+            </tr>
+          </thead>
+          <tbody id="listBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-label="Imagen del regalo">
+    <div class="modal-box">
+      <img id="modalImg" alt="Imagen del regalo">
+      <button type="button" class="close" id="closeModal">Cerrar</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
